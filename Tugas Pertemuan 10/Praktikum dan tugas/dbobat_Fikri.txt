@@ -1,0 +1,104 @@
+Microsoft Windows [Version 10.0.22621.2861]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Windows\System32>e:
+
+E:\>xampp
+'xampp' is not recognized as an internal or external command,
+operable program or batch file.
+
+E:\>cd xampp
+
+E:\Xampp>cd mysql
+
+E:\Xampp\mysql>cd bin
+
+E:\Xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 50
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database obat;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> use obat
+Database changed
+MariaDB [obat]> create table dbobat(
+    -> id int primary key auto_increment,
+    -> kdobat varchar(10) unique,
+    -> nama varchar(100),
+    -> berat varchar(10),
+    -> bentuk varchar(25));
+Query OK, 0 rows affected (0.030 sec)
+
+MariaDB [obat]> show tables;
++----------------+
+| Tables_in_obat |
++----------------+
+| dbobat         |
++----------------+
+1 row in set (0.001 sec)
+
+MariaDB [obat]> insert into dbobat(kdobat,nama,berat,bentuk)values('765','promaag','20mg','tablet');
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [obat]> insert into dbobat(kdobat,nama,berat,bentuk)values('002','Lansoprazole','15mg','kapsul');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [obat]> insert into dbobat(kdobat,nama,berat,bentuk)values('003','Bisolvon','60ml','Flash');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [obat]> insert into dbobat(kdobat,nama,berat,bentuk)values('004','Paracetamol','25mg','tablet');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [obat]> insert into dbobat(kdobat,nama,berat,bentuk)values('005','Rhinose','10mg','Kapsul');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [obat]> select * from dbobat;
++----+--------+--------------+-------+--------+
+| id | kdobat | nama         | berat | bentuk |
++----+--------+--------------+-------+--------+
+|  1 | 765    | promaag      | 20mg  | tablet |
+|  2 | 002    | Lansoprazole | 15mg  | kapsul |
+|  3 | 003    | Bisolvon     | 60ml  | Flash  |
+|  4 | 004    | Paracetamol  | 25mg  | tablet |
+|  5 | 005    | Rhinose      | 10mg  | Kapsul |
++----+--------+--------------+-------+--------+
+5 rows in set (0.001 sec)
+
+MariaDB [obat]> update dbobat set kdobat='001'where id='1';
+Query OK, 1 row affected (0.002 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [obat]> select * from dbobat;
++----+--------+--------------+-------+--------+
+| id | kdobat | nama         | berat | bentuk |
++----+--------+--------------+-------+--------+
+|  1 | 001    | promaag      | 20mg  | tablet |
+|  2 | 002    | Lansoprazole | 15mg  | kapsul |
+|  3 | 003    | Bisolvon     | 60ml  | Flash  |
+|  4 | 004    | Paracetamol  | 25mg  | tablet |
+|  5 | 005    | Rhinose      | 10mg  | Kapsul |
++----+--------+--------------+-------+--------+
+5 rows in set (0.001 sec)
+
+MariaDB [obat]> delete from dbobat where id='5';
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [obat]> select * from dbobat;
++----+--------+--------------+-------+--------+
+| id | kdobat | nama         | berat | bentuk |
++----+--------+--------------+-------+--------+
+|  1 | 001    | promaag      | 20mg  | tablet |
+|  2 | 002    | Lansoprazole | 15mg  | kapsul |
+|  3 | 003    | Bisolvon     | 60ml  | Flash  |
+|  4 | 004    | Paracetamol  | 25mg  | tablet |
++----+--------+--------------+-------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [obat]>
